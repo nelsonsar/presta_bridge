@@ -16,7 +16,13 @@ class StoresController < ApplicationController
     end
   end
 
-  def destroy;end
+  def destroy
+    if current_user.store.id == params[:id].to_i
+      current_user.store.destroy
+    end
+
+    redirect_to settings_path
+  end
 
   private
 
@@ -31,5 +37,9 @@ class StoresController < ApplicationController
 
   def build_store
     current_user.build_store store_params
+  end
+
+  def owned_by_current_user?
+
   end
 end

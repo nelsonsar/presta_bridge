@@ -36,7 +36,9 @@ describe StoresController do
 
     context 'with valid parameters' do
       it 'redirects user back to settings page' do
-        post :create, session: { user_id: user.id }, params: valid_parameters
+        expect do
+          post :create, session: { user_id: user.id }, params: valid_parameters
+        end.to change(Store, :count).by(1)
 
         expect(response).to redirect_to settings_path
       end
@@ -49,6 +51,23 @@ describe StoresController do
         expect(response).to redirect_to new_user_store_path(user)
         expect(flash[:error]).to_not be_nil
       end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'destroys user store' do
+      store = Store.create(
+        name: 'Foo',
+        url: 'http://foosstore.com',
+        user_id: user.id,
+        api_key: '9' * 32
+      )
+
+      expect do
+        delete :destroy, session: { user_id: user.id }, params: { id: store.id }
+      end.to change(Store, :count).by(-1)
+
+      expect(response).to redirect_to settings_path
     end
   end
 end
