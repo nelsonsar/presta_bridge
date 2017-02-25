@@ -10,7 +10,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                            <%= f.text_field :name, class: 'form-control' %>
+                            <%= f.text_field :name, class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
-                            <%= f.text_field :email, class: 'form-control' %>
+                            <%= f.text_field :email, class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                            <%= f.password_field :password, class: 'form-control' %>
+                            <%= f.password_field :password, class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                            <%= f.password_field :password_confirmation, class: 'form-control' %>
+                            <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>

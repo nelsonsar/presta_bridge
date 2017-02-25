@@ -11,7 +11,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
-                            <%= text_field_tag :email, '', class: 'form-control' %>
+                            <%= text_field_tag :email, '', class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                            <%= password_field_tag :password, '', class: 'form-control' %>
+                            <%= password_field_tag :password, '', class: 'form-control', required: true %>
                         </div>
                     </div>
                 </div>
