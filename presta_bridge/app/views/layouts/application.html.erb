@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrestaBridge</title>
+    <title>Welcome to PrestaBridge!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row main">
+        <% flash.each do |key, messages| %>
+          <div class="alert alert-danger col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" role="alert">
+            <button class="close" data-dismiss="alert">×</button>
+            <h4>Oops!</h4>
+            <% messages.each do |message| %>
+              <p><%= message %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <%= yield %>
+		  </div>
+	  </div>
   </body>
 </html>
