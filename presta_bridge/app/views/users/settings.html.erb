@@ -1,0 +1,15 @@
+<div class="col-md-6 col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Store Information</div>
+        </div>
+        <div class="panel-body">
+          <% if @store %>
+
+          <% else %>
+            <h4>No stores configured yet</h4>
+            <p>Click <%= link_to 'here', new_user_store_path(current_user.id) %> to configure it</p>
+          <% end %>
+        </div>
+    </div>
+</div>
