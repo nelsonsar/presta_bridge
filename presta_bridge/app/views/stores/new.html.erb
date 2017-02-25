@@ -1,0 +1,30 @@
+<div class="col-md-6 col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">New Store</div>
+        </div>
+        <div class="panel-body">
+            <%= form_for :store, url: user_stores_path(current_user), class: 'form-horizontal' do |f| %>
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Store Name</label>
+                    <div class="cols-sm-10">
+                        <%= f.text_field :name, class: 'form-control', required: true %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="url" class="cols-sm-2 control-label">Store URL</label>
+                    <div class="cols-sm-10">
+                        <%= f.text_field :url, class: 'form-control', required: true %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="api_key" class="cols-sm-2 control-label">API Key</label>
+                    <div class="cols-sm-10">
+                        <%= f.text_field :api_key, class: 'form-control', required: true %>
+                    </div>
+                </div>
+                <%= f.submit "Create", class: 'btn btn-primary btn-lg btn-block login-button' %>
+            <% end %>
+        </div>
+    </div>
+</div>

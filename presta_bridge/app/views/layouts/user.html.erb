@@ -19,9 +19,6 @@
             <p>Welcome back, <%= current_user.name %>!</p>
           </div>
 					<div class="list-group">
-						<a href="#" class="list-group-item active">
-              Store
-						</a>
 						<a href="#" class="list-group-item">
               Products
 						</a>
@@ -32,6 +29,15 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
+              <% flash.each do |key, messages| %>
+                <div class="alert alert-danger col-md-6 col-sm-8" role="alert">
+                  <button class="close" data-dismiss="alert">×</button>
+                  <h4>Oops!</h4>
+                  <% Array(messages).each do |message| %>
+                    <p><%= message %></p>
+                  <% end %>
+                </div>
+              <% end %>
               <%= yield %>
             </div>
           </div>

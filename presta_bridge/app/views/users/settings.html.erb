@@ -5,7 +5,14 @@
         </div>
         <div class="panel-body">
           <% if @store %>
+              <p><b>Name:</b> <%= @store.name %></p>
+              <p><b>URL:</b> <%= @store.url %></p>
+              <p><b>API Key:</b> <%= @store.api_key %></p>
+              <p><b>Created At:</b> <%= @store.created_at %></p>
 
+              <%= form_for @store, method: :delete do |f| %>
+                  <%= f.submit 'Delete Store', class: 'btn btn-danger btn-md' %>
+              <% end %>
           <% else %>
             <h4>No stores configured yet</h4>
             <p>Click <%= link_to 'here', new_user_store_path(current_user.id) %> to configure it</p>

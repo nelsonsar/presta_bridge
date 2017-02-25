@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :stores, only: [:new, :create, :destroy, :show], shallow: true
+  end
 
   # Authenticated user dashboard page
   get '/settings', to: 'users#settings'
