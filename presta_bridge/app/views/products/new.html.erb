@@ -1,0 +1,24 @@
+<div class="col-md-6 col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">New Product</div>
+        </div>
+        <div class="panel-body">
+            <%= form_for :product, url: store_products_path(@store_id), class: 'form-horizontal' do |f| %>
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Product Name</label>
+                    <div class="cols-sm-10">
+                        <%= f.text_field :name, class: 'form-control', required: true %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="url" class="cols-sm-2 control-label">Product Price</label>
+                    <div class="cols-sm-10">
+                        <%= f.text_field :price, class: 'form-control', required: true %>
+                    </div>
+                </div>
+                <%= f.submit "Create", class: 'btn btn-primary btn-lg btn-block login-button' %>
+            <% end %>
+        </div>
+    </div>
+</div>

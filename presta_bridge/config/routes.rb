@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
-    resources :stores, only: [:new, :create, :destroy, :show], shallow: true
+    resources :stores, only: [:new, :create, :destroy, :show], shallow: true do
+      resources :products, shallow: false
+    end
   end
 
   # Authenticated user dashboard page

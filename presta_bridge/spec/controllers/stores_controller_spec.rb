@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'support/user_factory'
+require 'support/store_factory'
 
 describe StoresController do
   let(:user) { UserFactory.create }
@@ -56,12 +58,7 @@ describe StoresController do
 
   describe 'DELETE #destroy' do
     it 'destroys user store' do
-      store = Store.create(
-        name: 'Foo',
-        url: 'http://foosstore.com',
-        user_id: user.id,
-        api_key: '9' * 32
-      )
+      store = StoreFactory.create user.id
 
       expect do
         delete :destroy, session: { user_id: user.id }, params: { id: store.id }

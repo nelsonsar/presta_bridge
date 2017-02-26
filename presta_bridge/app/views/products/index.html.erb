@@ -1,0 +1,23 @@
+<div class="col-md-6 col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title"><%= @store_name %> Products</div>
+        </div>
+        <table class="table">
+          <thead>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.id %></td>
+                <td><%= link_to product.name, product_path(product.id) %></td>
+                <td><%= product.price.round(2) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>

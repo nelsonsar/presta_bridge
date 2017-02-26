@@ -10,9 +10,14 @@
               <p><b>API Key:</b> <%= @store.api_key %></p>
               <p><b>Created At:</b> <%= @store.created_at %></p>
 
-              <%= form_for @store, method: :delete do |f| %>
-                  <%= f.submit 'Delete Store', class: 'btn btn-danger btn-md' %>
-              <% end %>
+              <div class="btn-group">
+                <%= link_to 'Add Product', new_store_product_path(@store), class: 'btn btn-success' %>
+              </div>
+              <div class="btn-group">
+                <%= form_for @store, method: :delete do |f| %>
+                    <%= f.submit 'Delete Store', class: 'btn btn-danger btn-md' %>
+                <% end %>
+              </div>
           <% else %>
             <h4>No stores configured yet</h4>
             <p>Click <%= link_to 'here', new_user_store_path(current_user.id) %> to configure it</p>
