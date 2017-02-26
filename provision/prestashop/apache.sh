@@ -8,13 +8,14 @@
 #
 # This function will copy the configuration file for PrestaShop (prestashop.conf)
 # to sites-available Apache's folder, make a symlink of it in sites-enabled folder,
-# remove the default config file from Apache and finally restart it. After calling this
-# function Apache is ready to serve PrestaShop.
+# remove the default config file from Apache, enable mod_rewrite and finally restart it.
+# After calling this function Apache is ready to serve PrestaShop.
 
 function configure_apache() {
     cp /tmp/prestashop/prestashop.conf /etc/apache2/sites-available/ && \
         ln -s /etc/apache2/sites-available/prestashop.conf /etc/apache2/sites-enabled/prestashop.conf && \
         rm /etc/apache2/sites-available/000-default.conf && \
         rm /etc/apache2/sites-enabled/000-default.conf && \
+        a2enmod rewrite && \
         service apache2 restart
 }
