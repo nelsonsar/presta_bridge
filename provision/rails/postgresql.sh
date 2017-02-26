@@ -3,6 +3,7 @@ function install_postgresql {
     add_postgresql_apt_repository && \
         sudo apt-get update && \
         sudo apt-get install postgresql postgresql-contrib -y && \
+        sudo apt-get install libpq-dev -y && \
         create_database_user
 }
 
